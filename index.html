@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>تامین فلات | تامین کننده ملزومات اداری</title>
+    <meta
+      name="description"
+      content="تامین فلات؛ تامین کننده ملزومات اداری، بهداشتی و نظافتی، لوازم التحریر و خوراکی های اداری با فاکتور رسمی و ثبت در سامانه مودیان."
+    />
+
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+      @font-face {
+        font-family: "Kalameh";
+        src: url("assets/fonts/KalamehWeb(FaNum)-Regular.woff2") format("woff2");
+        font-weight: 400;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "Kalameh";
+        src: url("assets/fonts/KalamehWeb(FaNum)-Medium.woff2") format("woff2");
+        font-weight: 500;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "Kalameh";
+        src: url("assets/fonts/KalamehWeb(FaNum)-SemiBold.woff2")
+          format("woff2");
+        font-weight: 600;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "Kalameh";
+        src: url("assets/fonts/KalamehWeb(FaNum)-Bold.woff2") format("woff2");
+        font-weight: 700;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "Kalameh";
+        src: url("assets/fonts/KalamehWeb(FaNum)-ExtraBold.woff2")
+          format("woff2");
+        font-weight: 800;
+        font-display: swap;
+      }
+
+      :root {
+        --bs-body-font-family: Kalameh, "Segoe UI", Tahoma, sans-serif;
+        --bs-body-line-height: 2;
+        --bs-body-color: #1c1c1c;
+        --tf-blue: #164194;
+        --tf-orange: #f18815;
+        --tf-line: #c6c6c6;
+        --tf-banner-h: 80px;
+      }
+      body {
+        background: #fff;
+        padding-top: calc(var(--tf-banner-h) + 1rem);
+      }
+
+      .page {
+        max-width: 512px;
+        margin-inline: auto;
+      }
+
+      .tf-sticky-banner {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1020;
+        background: #f18815;
+      }
+      .tf-sticky-banner img {
+        display: block;
+        height: var(--tf-banner-h);
+        max-width: 100%;
+        object-fit: contain;
+        margin-inline: auto;
+      }
+
+      .tf-title {
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+        color: var(--tf-blue);
+        font-weight: 800;
+        font-size: clamp(1.35rem, 5vw, 1.9rem);
+      }
+      .tf-title::before,
+      .tf-title::after {
+        content: "";
+        flex: 1;
+        height: 3px;
+        background: var(--tf-blue);
+      }
+
+      .tf-cats img {
+        width: 100%;
+        max-width: 188px;
+        aspect-ratio: 188 / 227;
+        object-fit: contain;
+      }
+
+      .tf-clients {
+        scroll-snap-type: x mandatory;
+      }
+      .tf-clients > * {
+        flex: 0 0 170px;
+        height: 170px;
+        scroll-snap-align: start;
+        border: 3px solid color-mix(in srgb, var(--tf-blue) 50%, transparent);
+        border-radius: 1.75rem;
+      }
+      .tf-clients img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+      .tf-clients::-webkit-scrollbar {
+        height: 6px;
+      }
+      .tf-clients::-webkit-scrollbar-thumb {
+        background: var(--tf-line);
+        border-radius: 99px;
+      }
+
+      .tf-social img {
+        width: 100%;
+        max-width: 90px;
+        transition:
+          transform 0.18s ease,
+          filter 0.18s ease;
+      }
+      /* .tf-social a:hover img,
+      .tf-social a:focus-visible img {
+        transform: translateY(-4px);
+        filter: drop-shadow(0 0.5rem 1rem rgba(27, 63, 158, 0.22));
+      } */
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      a:focus-visible {
+        outline: 3px solid var(--tf-orange);
+        outline-offset: 3px;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          transition: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tf-sticky-banner">
+      <img
+        src="assets/images/Banner-700x110-01.gif"
+        alt="بنر تبلیغاتی تامین فلات"
+      />
+    </div>
+
+    <div class="page px-3">
+      <header class="pb-2 pt-2 text-center">
+        <a href="https://www.taminfalat.com/">
+          <img
+            src="assets/images/Top-Logo.jpg"
+            class="img-fluid"
+            width="200px"
+            alt="تامین فلات - تامین کننده ملزومات اداری"
+          />
+        </a>
+      </header>
+
+      <section class="py-4">
+        <img
+          class="img-fluid"
+          src="assets/images/Mobile-Text.jpg"
+          alt="در خدمت شما هستیم"
+        />
+      </section>
+
+      <section class="py-4">
+        <h2 class="tf-title mb-4">دسته بندی محصولات</h2>
+        <div class="tf-cats row row-cols-2 g-3 text-center">
+          <div class="col">
+            <img src="assets/images/Icon-Text1-01.jpg" alt="بهداشتی و نظافتی" />
+          </div>
+          <div class="col">
+            <img
+              src="assets/images/Icon-Text1-02.jpg"
+              alt="لوازم و ملزومات اداری"
+            />
+          </div>
+          <div class="col">
+            <img src="assets/images/Icon-Text1-03.jpg" alt="لوازم تحریر" />
+          </div>
+          <div class="col">
+            <img
+              src="assets/images/Icon-Text1-04jpg.jpg"
+              alt="خوراکی های اداری"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="py-4">
+        <h2 class="tf-title mb-4">مزیت های رقابتی</h2>
+        <img
+          class="img-fluid"
+          src="assets/images/Sabad-Benfid.jpg"
+          alt="مزیت های رقابتی تامین فلات"
+        />
+      </section>
+
+      <section class="py-4">
+        <img
+          class="img-fluid"
+          src="assets/images/Banner-550x220-01.gif"
+          alt="مزیت های رقابتی تامین فلات"
+        />
+      </section>
+
+      <section class="py-4">
+        <h2 class="tf-title mb-4">افتخار خدمت رسانی</h2>
+        <div class="tf-clients d-flex gap-3 overflow-auto pb-2">
+          <div class="p-3"><img src="assets/images/01.png" alt="" /></div>
+          <div class="p-3"><img src="assets/images/02.png" alt="" /></div>
+          <div class="p-3"><img src="assets/images/03.png" alt="" /></div>
+          <div class="p-3"><img src="assets/images/04.png" alt="" /></div>
+          <div class="p-3"><img src="assets/images/05.png" alt="" /></div>
+          <div class="p-3"><img src="assets/images/06.png" alt="" /></div>
+          <div class="p-3"><img src="assets/images/07.png" alt="" /></div>
+          <div class="p-3"><img src="assets/images/08.png" alt="" /></div>
+          <div class="p-3"><img src="assets/images/09.png" alt="" /></div>
+        </div>
+      </section>
+
+      <section class="py-4">
+        <h2 class="tf-title mb-4">راه های ارتباطی با ما</h2>
+        <nav
+          class="tf-social row row-cols-3 g-3 text-center"
+          aria-label="راه های ارتباطی"
+        >
+          <div class="col">
+            <a href="#" aria-label="بله">
+              <img src="assets/images/Icon-Text3-01.jpg" alt="" />
+            </a>
+          </div>
+          <div class="col">
+            <a href="#" aria-label="واتساپ">
+              <img src="assets/images/Icon-Text3-02.jpg" alt="" />
+            </a>
+          </div>
+          <div class="col">
+            <a href="#" aria-label="تلگرام">
+              <img src="assets/images/Icon-Text3-03.jpg" alt="" />
+            </a>
+          </div>
+          <div class="col">
+            <a href="#" aria-label="لینکدین">
+              <img src="assets/images/Icon-Text3-04.jpg" alt="" />
+            </a>
+          </div>
+          <div class="col">
+            <a href="#" aria-label="اینستاگرام">
+              <img src="assets/images/Icon-Text3-05.jpg" alt="" />
+            </a>
+          </div>
+          <div class="col">
+            <a href="https://taminfalat.com" aria-label="وب سایت">
+              <img src="assets/images/Icon-Text3-06.jpg" alt="" />
+            </a>
+          </div>
+        </nav>
+      </section>
+
+      <footer class="text-center pt-4 pb-5">
+        <a href="https://taminfalat.com">
+          <img
+            class="img-fluid w-75"
+            src="assets/images/Text-04.jpg"
+            alt="taminfalat.com"
+          />
+        </a>
+      </footer>
+    </div>
+
+    <script>
+      (function () {
+        var track = document.querySelector(".tf-clients");
+        if (!track || track.children.length < 2) return;
+
+        var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+        var dir = getComputedStyle(track).direction === "rtl" ? -1 : 1;
+        var timer = null;
+
+        function step() {
+          var gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+          var amount =
+            track.firstElementChild.getBoundingClientRect().width + gap;
+          var atEnd =
+            Math.abs(track.scrollLeft) + track.clientWidth >=
+            track.scrollWidth - 1;
+
+          track.scrollTo({
+            left: atEnd ? 0 : track.scrollLeft + amount * dir,
+            behavior: "smooth",
+          });
+        }
+
+        function play() {
+          if (timer || reduce.matches) return;
+          timer = setInterval(step, 2000);
+        }
+        function pause() {
+          clearInterval(timer);
+          timer = null;
+        }
+
+        track.addEventListener("pointerenter", pause);
+        track.addEventListener("pointerleave", play);
+        track.addEventListener("focusin", pause);
+        track.addEventListener("focusout", play);
+        document.addEventListener("visibilitychange", function () {
+          document.hidden ? pause() : play();
+        });
+        reduce.addEventListener("change", function () {
+          reduce.matches ? pause() : play();
+        });
+
+        play();
+      })();
+    </script>
+  </body>
+</html>
