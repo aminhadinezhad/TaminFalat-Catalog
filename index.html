@@ -14,32 +14,32 @@
     <style>
       @font-face {
         font-family: "Kalameh";
-        src: url("assets/fonts/KalamehWeb(FaNum)-Regular.woff2") format("woff2");
+        src: url("assets/fonts/Kalameh-Regular.woff2") format("woff2");
         font-weight: 400;
         font-display: swap;
       }
       @font-face {
         font-family: "Kalameh";
-        src: url("assets/fonts/KalamehWeb(FaNum)-Medium.woff2") format("woff2");
+        src: url("assets/fonts/Kalameh-Medium.woff2") format("woff2");
         font-weight: 500;
         font-display: swap;
       }
       @font-face {
         font-family: "Kalameh";
-        src: url("assets/fonts/KalamehWeb(FaNum)-SemiBold.woff2")
+        src: url("assets/fonts/Kalameh-SemiBold.woff2")
           format("woff2");
         font-weight: 600;
         font-display: swap;
       }
       @font-face {
         font-family: "Kalameh";
-        src: url("assets/fonts/KalamehWeb(FaNum)-Bold.woff2") format("woff2");
+        src: url("assets/fonts/Kalameh-Bold.woff2") format("woff2");
         font-weight: 700;
         font-display: swap;
       }
       @font-face {
         font-family: "Kalameh";
-        src: url("assets/fonts/KalamehWeb(FaNum)-ExtraBold.woff2")
+        src: url("assets/fonts/Kalameh-ExtraBold.woff2")
           format("woff2");
         font-weight: 800;
         font-display: swap;
@@ -163,17 +163,6 @@
     </div>
 
     <div class="page px-3">
-      <header class="pb-2 pt-2 text-center">
-        <a href="https://www.taminfalat.com/">
-          <img
-            src="assets/images/Top-Logo.jpg"
-            class="img-fluid"
-            width="200px"
-            alt="تامین فلات - تامین کننده ملزومات اداری"
-          />
-        </a>
-      </header>
-
       <section class="py-4">
         <img
           class="img-fluid"
@@ -245,32 +234,56 @@
           aria-label="راه های ارتباطی"
         >
           <div class="col">
-            <a href="#" aria-label="بله">
+            <a
+              href="https://web.bale.ai/chat?uid=5786880213"
+              target="_blank"
+              aria-label="بله"
+            >
               <img src="assets/images/Icon-Text3-01.jpg" alt="" />
             </a>
           </div>
           <div class="col">
-            <a href="#" aria-label="واتساپ">
+            <a
+              href="https://www.whatsapp.com/channel/0029Vb7BAvGAjPXRvedQni05"
+              target="_blank"
+              aria-label="واتساپ"
+            >
               <img src="assets/images/Icon-Text3-02.jpg" alt="" />
             </a>
           </div>
           <div class="col">
-            <a href="#" aria-label="تلگرام">
+            <a
+              href="https://web.telegram.org/k/#@taminfalat_channel"
+              aria-label="تلگرام"
+              target="_blank"
+            >
               <img src="assets/images/Icon-Text3-03.jpg" alt="" />
             </a>
           </div>
           <div class="col">
-            <a href="#" aria-label="لینکدین">
+            <a
+              href="https://www.linkedin.com/company/taminfalatco"
+              aria-label="لینکدین"
+              target="_blank"
+            >
               <img src="assets/images/Icon-Text3-04.jpg" alt="" />
             </a>
           </div>
           <div class="col">
-            <a href="#" aria-label="اینستاگرام">
+            <a
+              href="https://www.instagram.com/taminfalat?stkn=MXZwMzQ2cWJsZDltaw=="
+              aria-label="اینستاگرام"
+              target="_blank"
+            >
               <img src="assets/images/Icon-Text3-05.jpg" alt="" />
             </a>
           </div>
           <div class="col">
-            <a href="https://taminfalat.com" aria-label="وب سایت">
+            <a
+              href="https://taminfalat.com"
+              aria-label="وب سایت"
+              target="_blank"
+            >
               <img src="assets/images/Icon-Text3-06.jpg" alt="" />
             </a>
           </div>
@@ -278,7 +291,7 @@
       </section>
 
       <footer class="text-center pt-4 pb-5">
-        <a href="https://taminfalat.com">
+        <a href="tel:02191001214">
           <img
             class="img-fluid w-75"
             src="assets/images/Text-04.jpg"
@@ -294,8 +307,12 @@
         if (!track || track.children.length < 2) return;
 
         var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+        var canHover = window.matchMedia("(hover: hover)");
         var dir = getComputedStyle(track).direction === "rtl" ? -1 : 1;
+        var STEP_MS = 2000;
+        var RESUME_MS = 3000;
         var timer = null;
+        var resumeTimer = null;
 
         function step() {
           var gap = parseFloat(getComputedStyle(track).columnGap) || 0;
@@ -313,17 +330,37 @@
 
         function play() {
           if (timer || reduce.matches) return;
-          timer = setInterval(step, 2000);
+          timer = setInterval(step, STEP_MS);
         }
         function pause() {
           clearInterval(timer);
           timer = null;
+          clearTimeout(resumeTimer);
+          resumeTimer = null;
         }
 
-        track.addEventListener("pointerenter", pause);
-        track.addEventListener("pointerleave", play);
-        track.addEventListener("focusin", pause);
-        track.addEventListener("focusout", play);
+        // هر دست زدن کاربر فقط موقتاً متوقف می کند و خودش دوباره راه می افتد
+        function nudge() {
+          pause();
+          resumeTimer = setTimeout(play, RESUME_MS);
+        }
+
+        [
+          "pointerdown",
+          "pointerup",
+          "touchstart",
+          "touchend",
+          "wheel",
+          "keydown",
+        ].forEach(function (ev) {
+          track.addEventListener(ev, nudge, { passive: true });
+        });
+
+        if (canHover.matches) {
+          track.addEventListener("mouseenter", pause);
+          track.addEventListener("mouseleave", play);
+        }
+
         document.addEventListener("visibilitychange", function () {
           document.hidden ? pause() : play();
         });
