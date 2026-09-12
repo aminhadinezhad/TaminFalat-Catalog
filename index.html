@@ -50,11 +50,9 @@
         --tf-blue: #164194;
         --tf-orange: #f18815;
         --tf-line: #c6c6c6;
-        --tf-banner-h: 80px;
       }
       body {
         background: #fff;
-        padding-top: calc(var(--tf-banner-h) + 1rem);
       }
 
       .page {
@@ -63,17 +61,16 @@
       }
 
       .tf-sticky-banner {
-        position: fixed;
+        position: sticky;
         top: 0;
-        left: 0;
-        right: 0;
         z-index: 1020;
+        background: #fff;
       }
       .tf-sticky-banner img {
         display: block;
-        height: var(--tf-banner-h);
-        max-width: 100%;
-        object-fit: contain;
+        width: 100%;
+        max-width: 512px;
+        height: auto;
         margin-inline: auto;
       }
 
